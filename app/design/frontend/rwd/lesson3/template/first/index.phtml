@@ -1,4 +1,58 @@
 <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-<p>Template first/index.phtml</p>
-<p>Use your knowledge for good purpose</p>
-<p>Never Back Down</p>
+<p class="StyleMy">Template first/index.phtml</p>
+<?php
+$helper = Mage::helper('itdelight_first');
+
+?>
+<p class="StyleMy"><?php echo $helper->getHello(); ?></p>
+<div class="category-products">
+    <?php $_columnCount = 4;  ?>
+    <ul class="products-grid products-grid--max-<?php echo $_columnCount; ?>-col">
+    <?php
+    $collection = $this->getNumOfProducts('entity_id', 421, 420, 417);
+    $i = 0;
+    foreach ($collection as $key => $partOfCollection) : ?>
+    <?php
+        $product_id = $partOfCollection->getId();
+        $full_product = Mage::getModel('catalog/product')->load($product_id);
+        // Now that we loaded the full product model
+
+        $product_name = $full_product->getName();
+        $product_url = $full_product->getProductUrl();
+        // Let's get the Product Image URL
+
+        $product_image_url = $full_product->getImageUrl();
+        $product_price =  $partOfCollection->getData('price')
+        // Let's print the product information we gathered and continue onto the next one
+
+        ?>
+        <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+            <a href="<?php echo $product_url; ?>" class="product-image">
+                <?php $_imgSize = 210; ?>
+                <img id="product-collection-image-<?php echo $product_id; ?>"
+                     src="<?php echo $this->helper('catalog/image')->init($partOfCollection, 'small_image')->resize($_imgSize); ?>"
+                />
+            </a>
+            <div class="product-info">
+                <h2 class="product-name"><a href="<?php echo $product_url; ?>" title="<?php echo $product_name ?>"> <?php echo $product_name; ?></a></h2>
+                <div class="price-box">
+                    <span class="regular-price" id="product-price-<?php echo $product_id ?>">
+                        <span class="price price-by-me">$ <?php echo $product_price; ?></span>
+                    </span>
+                </div>
+            </div>
+        </li>
+        <?php endforeach; ?>
+
+    </ul>
+
+</div>
+
+<?php
+// to add new data to itdelight_first_blogposts table in db
+$helper = Mage::helper('itdelight_first');
+$tableName = 'itdelight_first/blogcategory';
+$titleField = "First category";
+$content = "First content";
+echo $helper->addDataToTable($tableName, $titleField, $content);
+

@@ -6,6 +6,13 @@
         </Itdelight_First>
     </modules>
     <global>
+        <resources>
+            <itdelight_first_setup>
+                <setup>
+                    <module>Itdelight_First</module>
+                </setup>
+            </itdelight_first_setup>
+        </resources>
         <blocks>
             <itdelight_first>
                 <class>Itdelight_First_Block</class>
@@ -14,7 +21,20 @@
         <models>
             <itdelight_first>
                 <class>Itdelight_First_Model</class>
+                <resourceModel>itdelight_first_resource</resourceModel>
             </itdelight_first>
+            <itdelight_first_resource>
+                <class>Itdelight_First_Model_Resource</class>
+                <entities>
+                    <!-- figure out name about blogpost how to use it! Don't understand what is using in Model _init()-->
+                    <blogpost>
+                        <table>itdelight_first_blogposts</table>
+                    </blogpost>
+                    <blogcategory>
+                        <table>itdelight_first_blogcategory</table>
+                    </blogcategory>
+                </entities>
+            </itdelight_first_resource>
         </models>
         <helpers>
             <itdelight_first>
@@ -54,7 +74,13 @@
                 </args>
             </itdelight_first>
         </routers>
-
+         <layout>
+             <updates>
+                 <itdelight_first>
+                     <file>itdelight_first.xml</file>
+                 </itdelight_first>
+             </updates>
+         </layout>
     </frontend>
     <adminhtml>
         <acl>
