@@ -40,7 +40,18 @@
 /* ==========================================================================
    Custom Styles  product page for my module (itdelight_first)
    ========================================================================== */
-
+.itdelight-first-index-index .StyleMy {
+    color: #424242;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+    letter-spacing:0.1em;
+    text-align:center;
+    margin: 0px auto;
+    padding-bottom: 10px;
+    text-transform: lowercase;
+    line-height: 145%;
+    font-size: 14pt;
+    font-variant: small-caps;
+}
 .itdelight-first-index-index .page-header {
     background: -webkit-linear-gradient(90deg, #283048 10%, #859398 90%); /* Chrome 10+, Saf5.1+ */
     background:    -moz-linear-gradient(90deg, #283048 10%, #859398 90%); /* FF3.6+ */
@@ -70,7 +81,6 @@
 .itdelight-first-index-index .nav-primary a {
     color: white;
 }
-
 .itdelight-first-index-index .nav-primary li.level0 ul {
     background: -webkit-linear-gradient(90deg, #1F1C2C 10%, #928DAB 90%); /* Chrome 10+, Saf5.1+ */
     background:    -moz-linear-gradient(90deg, #1F1C2C 10%, #928DAB 90%); /* FF3.6+ */
