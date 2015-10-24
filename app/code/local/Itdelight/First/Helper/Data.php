@@ -16,7 +16,6 @@ class Itdelight_First_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function addDataToTable($tableName, $title, $content)
     {
-
         $data = array('title'=>$title, 'content'=> $content);
         $model = Mage::getModel($tableName)->setData($data);
         try {
@@ -25,6 +24,18 @@ class Itdelight_First_Helper_Data extends Mage_Core_Helper_Abstract
         } catch (Exception $e){
             return $e->getMessage();
         }
+    }
+
+    /**
+     * To add data into itdelight_first_blogposts table
+     *
+     * @var $tableName string (name of the table in config.xml file of the module pack_module/table_name)
+     * @return object
+     */
+    public function getDataFromTable($tableName)
+    {
+        $posts = Mage::getModel($tableName)->getCollection();
+        return $posts;
     }
 
 }

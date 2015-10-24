@@ -50,9 +50,17 @@ $helper = Mage::helper('itdelight_first');
 
 <?php
 // to add new data to itdelight_first_blogposts table in db
-$helper = Mage::helper('itdelight_first');
-$tableName = 'itdelight_first/blogcategory';
-$titleField = "First category";
-$content = "First content";
-echo $helper->addDataToTable($tableName, $titleField, $content);
+//$helper = Mage::helper('itdelight_first');
+$tableName = 'itdelight_first/blogpost';
+//$titleField = "Second post";
+//$content = "Second content";
+//echo $helper->addDataToTable($tableName, $titleField, $content);
 
+$posts = $helper->getDataFromTable($tableName);
+?>
+<div class="posts-main">
+    <?php foreach ($posts as $post): ?>
+        <h1><?php echo $post->getTitle(); ?> </h1>
+        <h2><?php echo $post->getContent(); ?> </h2>
+    <?php endforeach; ?>
+</div>
