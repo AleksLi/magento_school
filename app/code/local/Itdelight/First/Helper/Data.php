@@ -6,7 +6,6 @@ class Itdelight_First_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return "helper is working";
     }
-
     /**
      * To add data into itdelight_first_blogposts table
      *
@@ -27,4 +26,5 @@ class Itdelight_First_Helper_Data extends Mage_Core_Helper_Abstract
             return $e->getMessage();
         }
     }
+
 }
