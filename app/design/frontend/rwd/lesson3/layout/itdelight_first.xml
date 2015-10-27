@@ -27,6 +27,7 @@
         </reference>
         <reference name="content">
             <block type="itdelight_first/test" template="first/index.phtml"/>
+            <block type="itdelight_first/post" template="first/posts.phtml"/>
         </reference>
     </itdelight_first_index_index>
 

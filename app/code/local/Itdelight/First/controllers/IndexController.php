@@ -2,7 +2,6 @@
 
 class Itdelight_First_IndexController extends Mage_Core_Controller_Front_Action
 {
-
     public function indexAction()
     {
         $this->loadLayout();
@@ -16,6 +15,30 @@ class Itdelight_First_IndexController extends Mage_Core_Controller_Front_Action
     {
         $blogpost = Mage::getModel('itdelight_first/blogpost');
         echo get_class($blogpost);
+    }
+
+    public function viewAction()
+    {
+        var_dump(Mage::app()->getRequest()->getParams());
+    }
+
+    public function saveAction()
+    {
+        $post = $this->getRequest()->getPost();
+        echo "<pre>";
+        print_r($post);
+        echo "</pre>";
+
+        $fromdata = Mage::getModel('itdelight_first/blogpost')->setData($post)->save();
+        echo "<pre>";
+        print_r($fromdata);
+        echo "</pre>";
+
+        $data = Mage::getModel("itdelight_first/blogpost")->getFormData(true);
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
     }
 
 

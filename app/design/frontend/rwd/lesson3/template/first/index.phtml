@@ -48,19 +48,16 @@ $helper = Mage::helper('itdelight_first');
 
 </div>
 
-<?php
-// to add new data to itdelight_first_blogposts table in db
-//$helper = Mage::helper('itdelight_first');
-$tableName = 'itdelight_first/blogpost';
-//$titleField = "Second post";
-//$content = "Second content";
-//echo $helper->addDataToTable($tableName, $titleField, $content);
+<form action="<?php echo Mage::getUrl('first/index/save') ?>" method="post" id="my-custom-form">
+    <input type="text" name="title"/>
+    <textarea name="content" id="" cols="30" rows="10"></textarea>
+    <input type="submit"/>
+</form>
 
-$posts = $helper->getDataFromTable($tableName);
-?>
-<div class="posts-main">
-    <?php foreach ($posts as $post): ?>
-        <h1><?php echo $post->getTitle(); ?> </h1>
-        <h2><?php echo $post->getContent(); ?> </h2>
-    <?php endforeach; ?>
-</div>
+<script type="text/javascript">
+    //< ![CDATA[
+    var customForm = new VarienForm('my-custom-form');
+    //]]>
+</script>
+
+

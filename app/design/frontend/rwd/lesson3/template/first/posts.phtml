@@ -1,0 +1,14 @@
+<?php
+// to add new data to itdelight_first_blogposts table in db
+//$titleField = "Second post";
+//$content = "Second content";
+//echo $this->addDataToTable($titleField, $content);
+
+$posts = $this->getDataFromTable();
+?>
+<div class="posts-main">
+    <?php foreach ($posts as $post): ?>
+        <h1><?php echo $post->getTitle(); ?> </h1>
+        <h2><?php echo $post->getContent(); ?> </h2>
+    <?php endforeach; ?>
+</div>
