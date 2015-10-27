@@ -48,11 +48,14 @@ $helper = Mage::helper('itdelight_first');
 
 </div>
 
-<form action="<?php echo Mage::getUrl('first/index/save') ?>" method="post" id="my-custom-form">
-    <input type="text" name="title"/>
-    <textarea name="content" id="" cols="30" rows="10"></textarea>
-    <input type="submit"/>
-</form>
+<div class="custom-form">
+    <form action="<?php echo Mage::getUrl('first/index/save') ?>" method="post" id="my-custom-form">
+        <input type="text" name="title" placeholder="title"/>
+        <textarea name="content" id="" cols="30" rows="10" placeholder="content"></textarea>
+        <input type="submit" id="clickable" value="Send" />
+    </form>
+</div>
+
 
 <script type="text/javascript">
     //< ![CDATA[
