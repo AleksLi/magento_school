@@ -29,16 +29,12 @@ class Itdelight_First_IndexController extends Mage_Core_Controller_Front_Action
         print_r($post);
         echo "</pre>";
 
-        $fromdata = Mage::getModel('itdelight_first/blogpost')->setData($post)->save();
+        $formdata = Mage::getModel('itdelight_first/blogpost')->setData($post)->save();
         echo "<pre>";
-        print_r($fromdata);
+        print_r($formdata);
         echo "</pre>";
 
-        $data = Mage::getModel("itdelight_first/blogpost")->getFormData(true);
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-
+        $this->_redirect('*/*/');
     }
 
 

@@ -11,10 +11,11 @@ $installer->startSetup();
 $installer->getConnection()->dropTable($tablePosts);
 $table = $installer->getConnection()
     ->newTable($tablePosts)
-    ->addColumn('blogpost_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
-        'identity' => true,
+    ->addColumn('blogpost_id',  Varien_Db_Ddl_Table::TYPE_INTEGER, 11, array(
+        'unsigned' => true,
         'nullable' => false,
-        'primary'  => true,
+        'primary' => true,
+        'identity' => true,
     ))
     ->addColumn('title', Varien_Db_Ddl_Table::TYPE_TEXT, '255', array(
         'nullable' => false,
@@ -22,6 +23,10 @@ $table = $installer->getConnection()
     ->addColumn('content', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
         'nullable' => false,
     ))
+    ->addColumn('status', Varien_Db_Ddl_Table::TYPE_TINYINT, 2, array(
+        'nullable' => false,
+        'default' => '1',
+    ), 'Status')
     ->addColumn('created', Varien_Db_Ddl_Table::TYPE_DATETIME, null, array(
         'nullable' => false,
     ));
@@ -33,10 +38,11 @@ $tableBlogcategory = $installer->getTable('itdelight_first/blogcategory');
 $installer->getConnection()->dropTable($tableBlogcategory);
 $table = $installer->getConnection()
     ->newTable($tableBlogcategory)
-    ->addColumn('blogcategory_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
-        'identity' => true,
+    ->addColumn('blogcategory_id', Varien_Db_Ddl_Table::TYPE_INTEGER, 11, array(
+        'unsigned' => true,
         'nullable' => false,
-        'primary'  => true,
+        'primary' => true,
+        'identity' => true,
     ))
     ->addColumn('title', Varien_Db_Ddl_Table::TYPE_TEXT, '255', array(
         'nullable' => false,
