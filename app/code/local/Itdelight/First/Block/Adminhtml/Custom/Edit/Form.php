@@ -34,7 +34,7 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
         $this->setForm($form);
 
         $fieldset = $form->addFieldset('edit_form', array(
-            'legend' =>Mage::helper('itdelight_first')->__('Post Information')
+            'legend' => Mage::helper('itdelight_first')->__('Post Information')
         ));
 
         $fieldset->addField('title', 'text', array(
@@ -52,7 +52,7 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
             'name'      => 'content',
         ));
 
-        $fieldset->addField('is_active', 'select', array(
+        $fieldset->addField('status', 'select', array(
             'label'     => Mage::helper('itdelight_first')->__('Status'),
             'title'     => Mage::helper('itdelight_first')->__('Status'),
             'name'      => 'status',
@@ -65,6 +65,12 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
                 '0' => Mage::helper('itdelight_first')->__('Disabled'),
             ),*/
 
+        ));
+
+        $fieldset->addField('filename', 'image', array(
+            'label' => Mage::helper('itdelight_first')->__('Image'),
+            'required' => false,
+            'name' => 'filename',
         ));
 
         $form->setValues($data);

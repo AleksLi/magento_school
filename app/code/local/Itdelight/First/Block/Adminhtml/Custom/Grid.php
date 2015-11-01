@@ -21,6 +21,14 @@ class Itdelight_First_Block_Adminhtml_Custom_Grid extends Mage_Adminhtml_Block_W
             'width'     => '80px',
         ));
 
+        $this->addColumn('image', array(
+            'header'    => Mage::helper('itdelight_first')->__('Post Image'),
+            'align'     => 'left',
+            'index'     => 'image',
+            'width'     => '150',
+            'renderer'  => 'Itdelight_First_Block_Adminhtml_Custom_Renderer_Image'
+        ));
+
         $this->addColumn('title', array(
             'header' => $helper->__('Title'),
             'index' => 'title',

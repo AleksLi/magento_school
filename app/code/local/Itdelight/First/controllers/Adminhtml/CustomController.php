@@ -30,16 +30,32 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
 
     public function saveAction()
     {
+        $id = $this->getRequest()->getParam('id');
         if($data = $this->getRequest()->getPost()) {
             try {
+                $helper = Mage::helper('itdelight_first');
                 $model = Mage::getModel('itdelight_first/blogpost');
-                $model->setData($data)->setId($this->getRequest()->getParam('id'));
+
+                $model->setData($data)->setId($id);
                 if (!$model->getCreated()) {
                     $model->setCreated(now());
                 }
                 $model->save();
+                $id = $model->getId();
 
-                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('News was saved successfully'));
+                if (isset($_FILES['filename']['name']) && $_FILES['filename']['name'] != '') {
+                    $uploader = new Varien_File_Uploader('filename');
+                    $uploader->setAllowedExtensions(array('jpg', 'jpeg'));
+                    $uploader->setAllowRenameFiles(false);
+                    $uploader->setFilesDispersion(false);
+                    $uploader->save($helper->getImagePath(), $id . '.jpg'); // Upload the image
+                } else {
+                    if (isset($data['filename']['delete']) && $data['filename']['delete'] == 1) {
+                        @unlink($helper->getImagePath($id));
+                    }
+                }
+
+                Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Post was saved successfully'));
                 Mage::getSingleton('adminhtml/session')->setFormData(false);
                 $this->_redirect('*/*/');
             } catch (Exception $e) {
@@ -53,6 +69,8 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
         }
         Mage::getSingleton('adminhtml/session')->addError($this->__('Unable to find item to save'));
         $this->_redirect('*/*/');
+
+
     }
 
     public function deleteAction()
