@@ -12,7 +12,6 @@ class Itdelight_First_Block_Adminhtml_Custom_Grid extends Mage_Adminhtml_Block_W
 
     protected function _prepareColumns()
     {
-
         $helper = Mage::helper('itdelight_first');
 
         $this->addColumn('blogpost_id', array(
@@ -25,7 +24,7 @@ class Itdelight_First_Block_Adminhtml_Custom_Grid extends Mage_Adminhtml_Block_W
             'header'    => Mage::helper('itdelight_first')->__('Post Image'),
             'align'     => 'left',
             'index'     => 'image',
-            'width'     => '150',
+            'width'     => '100',
             'renderer'  => 'Itdelight_First_Block_Adminhtml_Custom_Renderer_Image'
         ));
 
