@@ -6,6 +6,17 @@
         </Itdelight_First>
     </modules>
     <global>
+        <events>
+            <checkout_cart_product_add_after><!-- observe the event -->
+                <observers>
+                    <itdelight_first>
+                        <class>itdelight_first/observer</class>
+                        <method>changeQty</method>
+                    </itdelight_first>
+                </observers>
+            </checkout_cart_product_add_after>
+            <!--</checkout_cart_add_product_complete>-->
+        </events>
         <resources>
             <itdelight_first_setup>
                 <setup>
