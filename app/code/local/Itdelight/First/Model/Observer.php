@@ -12,8 +12,6 @@ class Itdelight_First_Model_Observer {
         $quoteItem = $observer->getEvent()->getQuoteItem()->setQty('15');
 
 
-
-
     }
 }
 

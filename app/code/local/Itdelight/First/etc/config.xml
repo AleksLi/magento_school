@@ -6,6 +6,12 @@
         </Itdelight_First>
     </modules>
     <global>
+        <email>
+            <contacts_email_email_template>
+                <file>contact_form.html</file>
+                <type>text</type>
+            </contacts_email_email_template>
+        </email>
         <events>
             <checkout_cart_product_add_after><!-- observe the event -->
                 <observers>
