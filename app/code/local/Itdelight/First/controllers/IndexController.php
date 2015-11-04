@@ -39,16 +39,16 @@ class Itdelight_First_IndexController extends Mage_Core_Controller_Front_Action
         print_r($formdata);
         echo "</pre>";
 
-        $name = $this->getRequest()->getParam('name'); // set My
-        $email = $this->getRequest()->getParam('name'); // set My
-        $content = $this->getRequest()->getParam('name'); // set My
+        $title = $this->getRequest()->getParam('title'); // set My
+        $content = $this->getRequest()->getParam('content'); // set My
+        $status = $this->getRequest()->getParam('status'); // set My
 
         $emailTemplate = Mage::getModel('core/email_template')->loadDefault(self::XML_PATH_FEEDBACK_TEMPLATE);
 
         $sender = array();
-        $sender['name'] = $name;
-        $sender['email'] = $email;
+        $sender['title'] = $title;
         $sender['content'] = $content;
+        $sender['status'] = $status;
 
         try {
             $feedback = new Varien_Object();
@@ -60,7 +60,7 @@ class Itdelight_First_IndexController extends Mage_Core_Controller_Front_Action
                 'Admin',
                 array('feedback' =>$feedback)
             );
-            Mage::getSingleton('core/session')->addSuccess("Your feedback Submitted Successfully");
+            Mage::getSingleton('core/session')->addSuccess("Your Form Submitted Successfully");
             $this->_redirect('*/*/');
             return;
 

@@ -2,20 +2,21 @@
 <config>
     <modules>
         <Itdelight_First>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </Itdelight_First>
     </modules>
     <global>
         <email>
             <contacts_email_email_template>
-                <file>contact_form.html</file>
-                <type>text</type>
+                <file>feedback_form.html</file>
+                <type>html</type>
             </contacts_email_email_template>
         </email>
         <events>
             <checkout_cart_product_add_after><!-- observe the event -->
                 <observers>
                     <itdelight_first>
+                        <type>singleton</type>
                         <class>itdelight_first/observer</class>
                         <method>changeQty</method>
                     </itdelight_first>
