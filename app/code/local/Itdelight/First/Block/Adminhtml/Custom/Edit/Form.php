@@ -57,8 +57,8 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
             'title'     => Mage::helper('itdelight_first')->__('Status'),
             'name'      => 'status',
             'required'  => true,
-            'value'  => '1',
-            'options' => array('0' => 'Disabled', '1' => 'Enabled'),
+            'value'  => '2',
+            'values' => array(  '2' => 'Enabled', '1' => 'Disabled',),
             'disabled' => false,
            /* 'options'   => array(
                 '1' => Mage::helper('itdelight_first')->__('Enabled'),

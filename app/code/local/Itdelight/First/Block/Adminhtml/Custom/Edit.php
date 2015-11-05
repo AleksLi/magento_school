@@ -17,9 +17,9 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit extends Mage_Adminhtml_Block_W
         $model = Mage::registry('posts_data');
 
         if ($model->getId()) {
-            return $helper->__("Edit News item '%s'", $this->escapeHtml($model->getTitle()));
+            return $helper->__("Edit Post item '%s'", $this->escapeHtml($model->getTitle()));
         } else {
-            return $helper->__("Add News item");
+            return $helper->__("Add Post item");
         }
     }
 }

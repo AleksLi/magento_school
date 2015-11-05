@@ -40,7 +40,7 @@ class Itdelight_First_Block_Adminhtml_Custom_Grid extends Mage_Adminhtml_Block_W
             'type'      => 'options',
             'options'   => array(
                 '1' => $helper->__('Enabled'),
-                '0' => $helper->__('Disabled'),
+                '2' => $helper->__('Disabled'),
             ),
         ));
 
