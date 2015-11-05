@@ -24,7 +24,7 @@ $table = $installer->getConnection()
         'nullable' => false,
     ))
     ->addColumn('status', Varien_Db_Ddl_Table::TYPE_TINYINT, 2, array(
-        'nullable' => false,
+//        'nullable' => false,
         'default' => '1',
     ), 'Status')
     ->addColumn('created', Varien_Db_Ddl_Table::TYPE_DATETIME, null, array(

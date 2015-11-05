@@ -5,11 +5,11 @@
             <title>Itdelight</title>
             <sort_order>100</sort_order>
             <children>
-                <index module="itdelight_first" translate="title">
-                    <title>Module settings</title>
+                <quantity module="itdelight_first" translate="title">
+                    <title>Change quantity</title>
                     <sort_order>1</sort_order>
-                    <action>first_admin/adminhtml_index</action>
-                </index>
+                    <action>first_admin/adminhtml_quantity</action>
+                </quantity>
                 <custom module="itdelight_first" translate="title">
                     <title>Custom settings</title>
                     <sort_order>2</sort_order>
@@ -26,10 +26,10 @@
                         <title>Itdelight</title>
                         <sort_order>100</sort_order>
                         <children>
-                            <index translate="title">
-                                <title>Module settings</title>
+                            <quantity translate="title">
+                                <title>Change quantity</title>
                                 <sort_order>1</sort_order>
-                            </index>
+                            </quantity>
                             <custom module="itdelight_first" translate="title">
                                 <title>Custom settings</title>
                                 <sort_order>2</sort_order>

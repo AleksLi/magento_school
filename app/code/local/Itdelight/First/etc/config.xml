@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Itdelight_First>
-            <version>0.0.2</version>
+            <version>0.0.3</version>
         </Itdelight_First>
     </modules>
     <global>
@@ -51,6 +51,9 @@
                     <blogcategory>
                         <table>itdelight_first_blogcategory</table>
                     </blogcategory>
+                    <table_quantity>
+                        <table>itdelight_first_quantity</table>
+                    </table_quantity>
                 </entities>
             </itdelight_first_resource>
         </models>
