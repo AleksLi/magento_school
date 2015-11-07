@@ -4,7 +4,7 @@ class Itdelight_First_Adminhtml_QuantityController extends Mage_Adminhtml_Contro
 {
     public function indexAction()
     {
-        $this->_redirect('*/*/edit');
+//        $this->_redirect('*/*/edit');
 
         $this->loadLayout();
         $this->_setActiveMenu('quantity');
@@ -33,10 +33,12 @@ class Itdelight_First_Adminhtml_QuantityController extends Mage_Adminhtml_Contro
 
     public function saveAction()
     {
+        $id = $this->getRequest()->getParam('id');
         if ($data = $this->getRequest()->getPost()) {
             try {
+
                 $model = Mage::getModel('itdelight_first/quantity');
-                $model->setData($data)->setId($this->getRequest()->getParam('id'));
+                $model->setData($data)->setId($id);
                 if(!$model->getCreated()){
                     $model->setCreated(now());
                 }
@@ -55,7 +57,7 @@ class Itdelight_First_Adminhtml_QuantityController extends Mage_Adminhtml_Contro
             return;
         }
         Mage::getSingleton('adminhtml/session')->addError($this->__('Unable to find item to save'));
-        $this->_redirect('*/*/');
+        $this->_redirect('*/*/edit');
 
     }
 

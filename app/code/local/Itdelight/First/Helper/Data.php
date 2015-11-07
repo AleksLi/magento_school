@@ -7,11 +7,21 @@ class Itdelight_First_Helper_Data extends Mage_Core_Helper_Abstract
         return "helper is working";
     }
 
-    public function getImagePath($id = 0)
+//    public function getImagePath($id = 0)
+//    {
+//        $path = Mage::getBaseDir('media') . '/itdelight_posts' ;
+//        if($id) {
+//            return "{$path}/{$id}.jpg";
+//        } else {
+//            return $path;
+//        }
+//    }
+
+    public function getImagePath($name = "")
     {
         $path = Mage::getBaseDir('media') . '/itdelight_posts' ;
-        if($id) {
-            return "{$path}/{$id}.jpg";
+        if($name) {
+            return "{$path}/{$name}.jpg";
         } else {
             return $path;
         }
@@ -25,6 +35,17 @@ class Itdelight_First_Helper_Data extends Mage_Core_Helper_Abstract
         } else {
             return $url;
         }
+    }
+
+    public function getProductList()
+    {
+        $products = Mage::getModel('catalog/product')->getCollection();
+        $products->addAttributeToSelect('name');
+        $output = array();
+        foreach($products as $product){
+            $output[$product->getId()] = $product->getId();
+        }
+        return $output;
     }
 
 

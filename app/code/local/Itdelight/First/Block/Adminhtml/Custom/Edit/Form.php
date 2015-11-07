@@ -72,6 +72,12 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
             'name' => 'image',
         ));
 
+        $fieldset->addField('product_id', 'select', array(
+            'label' => Mage::helper('itdelight_first')->__('Product Name'),
+            'name' => 'product_id',
+            'values' => Mage::helper('itdelight_first')->getProductList(), //
+        ));
+
         $form->setValues($data);
 
         return parent::_prepareForm();

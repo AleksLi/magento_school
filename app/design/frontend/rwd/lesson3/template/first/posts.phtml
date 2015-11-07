@@ -1,13 +1,12 @@
 <?php
 
-$posts = $this->getDataFromTable();
+$posts = $this->getDataFromTable()->addFieldToFilter('status', '1');
 ?>
 <div class="posts-main">
     <?php foreach ($posts as $post): ?>
-        <?php if( $post->getStatus() == 1 ): ?>
+
             <h1><?php echo $post->getTitle(); ?> </h1>
             <h2><?php echo $post->getContent(); ?> </h2>
-        <?php endif?>
 
     <?php endforeach; ?>
 </div>

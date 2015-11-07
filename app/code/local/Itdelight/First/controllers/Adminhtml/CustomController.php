@@ -25,7 +25,6 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
         $this->loadLayout()->_setActiveMenu('custom/custom');
         $this->_addContent($this->getLayout()->createBlock('itdelight_first/adminhtml_custom_edit'));
         $this->renderLayout();
-
     }
 
     public function saveAction()
@@ -35,7 +34,6 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
             try {
                 $helper = Mage::helper('itdelight_first');
                 $model = Mage::getModel('itdelight_first/blogpost');
-
 
                 $model->setData($data)->setId($id);
                 if (!$model->getCreated()) {
@@ -49,16 +47,17 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
                     $uploader->setAllowedExtensions(array('jpg', 'jpeg'));
                     $uploader->setAllowRenameFiles(false);
                     $uploader->setFilesDispersion(false);
-                    $uploader->save($helper->getImagePath(), $id . '.jpg'); // Upload the image
+                    $uploader->save($helper->getImagePath(), $_FILES['image']['name'] . '.jpg'); // Upload the image
 
-                    $data['image'] = $id . 'jpg';
+                    $data['image'] = $_FILES['image']['name'] ;
                 } else {
                     if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
                         @unlink($helper->getImagePath($id));
                     }
+                    $data['image'] = 'choose the picture please';
                 }
 
-
+                $model->setData($data)->setId($id);
                 $model->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Post was saved successfully'));

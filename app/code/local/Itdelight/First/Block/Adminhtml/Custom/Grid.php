@@ -34,10 +34,19 @@ class Itdelight_First_Block_Adminhtml_Custom_Grid extends Mage_Adminhtml_Block_W
             'type' => 'text',
         ));
 
+        $this->addColumn('products', array(
+            'header' => $helper->__('Products'),
+            'index' => 'product_id',
+            'options' => $helper->getProductList(),
+            'type'  => 'options',
+//            'width' => '150px',
+        ));
+
         $this->addColumn('status', array(
             'header'    => $helper->__('Status'),
             'index'     => 'status',
             'type'      => 'options',
+            'width'     => '100',
             'options'   => array(
                 '1' => $helper->__('Enabled'),
                 '2' => $helper->__('Disabled'),

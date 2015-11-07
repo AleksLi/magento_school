@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Itdelight_First>
-            <version>0.0.3</version>
+            <version>0.0.4</version>
         </Itdelight_First>
     </modules>
     <global>
@@ -35,6 +35,11 @@
             <itdelight_first>
                 <class>Itdelight_First_Block</class>
             </itdelight_first>
+            <catalog>
+                <rewrite>
+                    <product_view>Itdelight_First_Block_Product_View</product_view>
+                </rewrite>
+            </catalog>
         </blocks>
         <models>
             <itdelight_first>
@@ -62,6 +67,8 @@
                 <class>Itdelight_First_Helper</class>
             </itdelight_first>
         </helpers>
+
+
     </global>
     <admin>
         <routers>
