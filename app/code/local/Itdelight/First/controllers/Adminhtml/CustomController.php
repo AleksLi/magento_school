@@ -36,24 +36,30 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
                 $helper = Mage::helper('itdelight_first');
                 $model = Mage::getModel('itdelight_first/blogpost');
 
+
                 $model->setData($data)->setId($id);
                 if (!$model->getCreated()) {
                     $model->setCreated(now());
                 }
-                $model->save();
                 $id = $model->getId();
 
-                if (isset($_FILES['filename']['name']) && $_FILES['filename']['name'] != '') {
-                    $uploader = new Varien_File_Uploader('filename');
+
+                if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
+                    $uploader = new Varien_File_Uploader('image');
                     $uploader->setAllowedExtensions(array('jpg', 'jpeg'));
                     $uploader->setAllowRenameFiles(false);
                     $uploader->setFilesDispersion(false);
                     $uploader->save($helper->getImagePath(), $id . '.jpg'); // Upload the image
+
+                    $data['image'] = $id . 'jpg';
                 } else {
-                    if (isset($data['filename']['delete']) && $data['filename']['delete'] == 1) {
+                    if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
                         @unlink($helper->getImagePath($id));
                     }
                 }
+
+
+                $model->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Post was saved successfully'));
                 Mage::getSingleton('adminhtml/session')->setFormData(false);
@@ -65,8 +71,10 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
                     'id' => $this->getRequest()->getParam('id')
                 ));
             }
+
             return;
         }
+
         Mage::getSingleton('adminhtml/session')->addError($this->__('Unable to find item to save'));
         $this->_redirect('*/*/');
 

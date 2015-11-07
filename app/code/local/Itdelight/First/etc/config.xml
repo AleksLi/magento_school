@@ -13,7 +13,7 @@
             </contacts_email_email_template>
         </email>
         <events>
-            <checkout_cart_product_add_after><!-- observe the event -->
+            <sales_quote_add_item><!-- observe the event -->
                 <observers>
                     <itdelight_first>
                         <type>singleton</type>
@@ -21,8 +21,8 @@
                         <method>changeQty</method>
                     </itdelight_first>
                 </observers>
-            </checkout_cart_product_add_after>
-            <!--</checkout_cart_add_product_complete>-->
+            </sales_quote_add_item>
+            <!--</sales_quote_add_item>-->
         </events>
         <resources>
             <itdelight_first_setup>
@@ -63,17 +63,6 @@
             </itdelight_first>
         </helpers>
     </global>
-<!--    <admin>
-        <routers>
-            <adminhtml>
-                <args>
-                    <module>
-                        <Itdelight_First before="Mage_Adminhtml">Itdelight_First_Adminhtml</Itdelight_First>
-                    </module>
-                </args>
-            </adminhtml>
-        </routers>
-    </admin>-->
     <admin>
         <routers>
             <itdelight_first>
@@ -103,25 +92,5 @@
              </updates>
          </layout>
     </frontend>
-    <adminhtml>
-        <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <firstconfig_options>
-                                            <title>Store Hello World Module Section</title>
-                                        </firstconfig_options>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
-    </adminhtml>
+
 </config>

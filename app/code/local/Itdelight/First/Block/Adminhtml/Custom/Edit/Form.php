@@ -57,8 +57,8 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
             'title'     => Mage::helper('itdelight_first')->__('Status'),
             'name'      => 'status',
             'required'  => true,
-            'value'  => '2',
-            'values' => array(  '2' => 'Enabled', '1' => 'Disabled',),
+            'value'  => '1',
+            'values' => array('1' => 'Enabled', '2' => 'Disabled'),
             'disabled' => false,
            /* 'options'   => array(
                 '1' => Mage::helper('itdelight_first')->__('Enabled'),
@@ -67,10 +67,9 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
 
         ));
 
-        $fieldset->addField('filename', 'image', array(
+        $fieldset->addField('image', 'image', array(
             'label' => Mage::helper('itdelight_first')->__('Image'),
-            'required' => false,
-            'name' => 'filename',
+            'name' => 'image',
         ));
 
         $form->setValues($data);
