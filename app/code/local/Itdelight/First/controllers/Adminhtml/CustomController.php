@@ -52,7 +52,8 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
                     $data['image'] = $_FILES['image']['name'] ;
                 } else {
                     if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
-                        @unlink($helper->getImagePath($id));
+
+                        @unlink($helper->getImagePath($id) . "-------");
                     }
                     $data['image'] = 'choose the picture please';
                 }
