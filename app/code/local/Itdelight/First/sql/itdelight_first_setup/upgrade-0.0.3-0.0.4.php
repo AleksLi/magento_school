@@ -2,8 +2,6 @@
 
 $installer = $this;
 
-//die('sql is right');
-
 $installer->startSetup();
 
 $tablePosts = $installer->getTable('itdelight_first/blogpost');

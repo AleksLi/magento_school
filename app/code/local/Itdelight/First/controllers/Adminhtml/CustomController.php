@@ -94,4 +94,11 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
         }
         $this->_redirect('*/*/');
     }
+
+    public function exportCsvAction()
+    {
+        $fileName   = 'orders.csv';
+        $grid       = $this->getLayout()->createBlock('itdelight_first/adminhtml_custom');
+        $this->_prepareDownloadResponse($fileName, $grid->getCsvFile());
+    }
 }

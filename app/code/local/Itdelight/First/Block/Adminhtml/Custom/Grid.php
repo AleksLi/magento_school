@@ -12,6 +12,8 @@ class Itdelight_First_Block_Adminhtml_Custom_Grid extends Mage_Adminhtml_Block_W
 
     protected function _prepareColumns()
     {
+        $this->addExportType('*/*/exportCsv', Mage::helper('itdelight_first')->__('CSV'));
+
         $helper = Mage::helper('itdelight_first');
 
         $this->addColumn('blogpost_id', array(
