@@ -47,7 +47,7 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
                     $uploader->setAllowedExtensions(array('jpg', 'jpeg'));
                     $uploader->setAllowRenameFiles(false);
                     $uploader->setFilesDispersion(false);
-                    $uploader->save($helper->getImagePath(), $_FILES['image']['name'] . '.jpg'); // Upload the image
+                    $uploader->save($helper->getImagePath(), $_FILES['image']['name']); // Upload the image
 
                     $data['image'] = $_FILES['image']['name'] ;
                 } else {
