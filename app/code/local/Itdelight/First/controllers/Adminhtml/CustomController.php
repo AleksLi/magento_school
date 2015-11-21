@@ -29,6 +29,7 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
 
     public function saveAction()
     {
+
         $id = $this->getRequest()->getParam('id');
         if($data = $this->getRequest()->getPost()) {
             try {
@@ -54,8 +55,12 @@ class Itdelight_First_Adminhtml_CustomController extends Mage_Adminhtml_Controll
                     if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
 
                         @unlink($helper->getImagePath($id) . "-------");
+                    } else {
+                        $str =  $data['image']['value'];
+                        $parts = explode('/', $str);
+                        $model->getData($id);
+                        $data['image'] = $parts[1];
                     }
-                    $data['image'] = 'choose the picture please';
                 }
 
                 $model->setData($data)->setId($id);

@@ -6,7 +6,7 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
     protected function _prepareForm()
     {
 //        $helper = Mage::helper('itdelight_first');
-//        $model = Mage::registry('posts_data');
+        $model = Mage::registry('posts_data');
 //        Zend_Debug::dump($model);
 
         if (Mage::getSingleton('adminhtml/session')->getPostsData())
@@ -16,7 +16,7 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
         }
         elseif (Mage::registry('posts_data'))
         {
-            $data = Mage::registry('posts_data')->getData();
+            $data = Mage::registry('posts_data');
         }
         else
         {
@@ -78,7 +78,13 @@ class Itdelight_First_Block_Adminhtml_Custom_Edit_Form extends Mage_Adminhtml_Bl
             'values' => Mage::helper('itdelight_first')->getProductList(), //
         ));
 
-        $form->setValues($data);
+        if($data->getData('image')){
+            $data->setData('image','itdelight_posts/'.$model->getData('image'));
+        } else {
+            $data->setData('image', $model->getData('image'));
+        }
+
+        $form->setValues($data->getData());
 
         return parent::_prepareForm();
     }
