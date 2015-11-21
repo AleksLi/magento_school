@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Itdelight_First>
-            <version>0.0.4</version>
+            <version>0.0.5</version>
         </Itdelight_First>
     </modules>
     <global>
@@ -13,7 +13,7 @@
             </contacts_email_email_template>
         </email>
         <events>
-            <sales_quote_add_item><!-- observe the event -->
+            <sales_quote_add_item>
                 <observers>
                     <itdelight_first>
                         <type>singleton</type>
@@ -22,15 +22,7 @@
                     </itdelight_first>
                 </observers>
             </sales_quote_add_item>
-            <!--</sales_quote_add_item>-->
         </events>
-        <resources>
-            <itdelight_first_setup>
-                <setup>
-                    <module>Itdelight_First</module>
-                </setup>
-            </itdelight_first_setup>
-        </resources>
         <blocks>
             <itdelight_first>
                 <class>Itdelight_First_Block</class>
@@ -49,7 +41,6 @@
             <itdelight_first_resource>
                 <class>Itdelight_First_Model_Resource</class>
                 <entities>
-                    <!-- figure out name about blogpost how to use it! Don't understand what is using in Model _init()-->
                     <blogpost>
                         <table>itdelight_first_blogposts</table>
                     </blogpost>
@@ -62,6 +53,17 @@
                 </entities>
             </itdelight_first_resource>
         </models>
+        <resources>
+            <itdelight_first_setup>
+                <setup>
+                    <module>Itdelight_First</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </itdelight_first_setup>
+        </resources>
         <helpers>
             <itdelight_first>
                 <class>Itdelight_First_Helper</class>
@@ -110,6 +112,75 @@
                 <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
             </excellence>
         </carriers>
+        <payment>
+            <itdelight_points>
+                <model>itdelight_first/standard</model>// very important thing, here you select the model for your payment method
+                <active>1</active>
+                <order_status>pending</order_status>
+                <title>Points</title>
+                <payment_action>sale</payment_action>
+                <submit_url>https://someurl.com</submit_url>
+                <merchant_id>Insert merchant id</merchant_id>
+                <allowspecific>0</allowspecific>
+                <sort_order>1</sort_order>
+            </itdelight_points>
+        </payment>
     </default>
 
 </config>
+
+
+<!--<config>-->
+<!--<modules>-->
+    <!--<inchoo_mycheckout>-->
+        <!--<version>1.0.0</version>-->
+    <!--</inchoo_mycheckout>-->
+<!--</modules>-->
+
+<!--<global>-->
+    <!--<models>-->
+        <!--<mycheckout>-->
+            <!--<class>Inchoo_Mycheckout_Model</class>-->
+        <!--</mycheckout>-->
+    <!--</models>-->
+    <!--<helpers>-->
+        <!--<mycheckout>-->
+            <!--<class>Inchoo_Mycheckout_Helper</class>-->
+        <!--</mycheckout>-->
+
+    <!--</helpers>-->
+    <!--<blocks>-->
+        <!--<mycheckout>-->
+            <!--<class>Inchoo_Mycheckout_Block</class>-->
+        <!--</mycheckout>-->
+    <!--</blocks>-->
+<!--</global>-->
+
+<!--<default>-->
+    <!--<payment>-->
+        <!--<mycheckout>-->
+            <!--<model>mycheckout/standard</model>// very important thing, here you select the model for your payment method-->
+            <!--<active>1</active>-->
+            <!--<order_status>pending</order_status>-->
+            <!--<title>CUSTOM CARD</title>-->
+            <!--<payment_action>sale</payment_action>-->
+            <!--<submit_url>https://someurl.com</submit_url>-->
+            <!--<merchant_id>Insert merchant id</merchant_id>-->
+            <!--<allowspecific>0</allowspecific>-->
+            <!--<sort_order>1</sort_order>-->
+        <!--</mycheckout>-->
+    <!--</payment>-->
+<!--</default>-->
+
+<!--<frontend>-->
+    <!--<routers>-->
+        <!--<mycheckout>-->
+            <!--<use>standard</use>-->
+            <!--<args>-->
+                <!--<module>Inchoo_Mycheckout</module>-->
+                <!--<frontname>customcard</frontname>-->
+            <!--</args>-->
+        <!--</mycheckout>-->
+    <!--</routers>-->
+<!--</frontend>-->
+<!--</config>-->

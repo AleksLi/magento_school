@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Itdelight_Cpayment>
+            <version>0.0.1</version>
+        </Itdelight_Cpayment>
+    </modules>
+    <global>
+        <models>
+            <itdelight_cpayment>
+                <class>Itdelight_Cpayment_Model</class>
+            </itdelight_cpayment>
+        </models>
+        <resources>
+            <itdelight_cpayment_setup>
+                <setup>
+                    <module>Itdelight_Cpayment</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class> <!-- this needs to be added -->
+                </setup>
+            </itdelight_cpayment_setup>
+        </resources>
+        <helpers>
+            <itdelight_cpayment>
+                <class>Itdelight_Cpayment_Helper</class>
+            </itdelight_cpayment>
+        </helpers>
+    </global>
+
+</config>
+
