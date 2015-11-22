@@ -29,7 +29,7 @@
                             <show_in_store>1</show_in_store>
                         </title>
                         <name transtale="label">
-                            <label>Method Name</label>
+                            <label>Shipping is custom</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
@@ -79,7 +79,7 @@
 
         <payment>
             <groups>
-                <itdelight_points translate="label comment" module="paypal">
+                <itdelight_first translate="label comment" module="paypal">
                     <label>Points Payment</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>100</sort_order>
@@ -158,7 +158,7 @@
                         </sort_order>
 
                     </fields>
-                </itdelight_points>
+                </itdelight_first>
             </groups>
         </payment>
 
