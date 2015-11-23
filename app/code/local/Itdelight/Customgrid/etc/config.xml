@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Itdelight_Customgrid>
+            <version>1.0.0</version>
+        </Itdelight_Customgrid>
+    </modules>
+    <global>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Itdelight_Customgrid_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <itdelight_customgrid>
+            <class>Itdelight_Customgrid_Block</class>
+        </itdelight_customgrid>
+        <itdelight_customgrid>
+            <class>Itdelight_Customgrid_Model</class>
+        </itdelight_customgrid>
+    </global>
+    <adminhtml>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <itdelight_customgrid>
+                        <type>model</type>
+                        <class>Itdelight_Customgrid_Model_Observer</class>
+                        <method>appendCustomColumn</method>
+                    </itdelight_customgrid>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+        <layout>
+            <updates>
+                <itdelight_customgrid>
+                    <file>itdelight/customgrid.xml</file>
+                </itdelight_customgrid>
+            </updates>
+        </layout>
+    </adminhtml>
+
+
+</config>

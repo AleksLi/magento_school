@@ -1,0 +1,26 @@
+<!--file: app/design/adminhtml/default/default/layout/package/module.xml -->
+<layout>
+    <sales_order_grid_update_handle>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>payment_method</columnId>
+                <arguments>
+                    <header>Payment Method</header>
+                    <index>payment_method</index>
+                    <filter_index>payment.method</filter_index>
+                    <type>text</type>
+                </arguments>
+                <after>shipping_name</after>
+            </action>
+        </reference>
+    </sales_order_grid_update_handle>
+    <adminhtml_sales_order_grid>
+        <!-- apply layout handle defined above -->
+        <update handle="sales_order_grid_update_handle" />
+    </adminhtml_sales_order_grid>
+    <adminhtml_sales_order_index>
+        <!-- apply layout handle defined above -->
+        <update handle="sales_order_grid_update_handle" />
+    </adminhtml_sales_order_index>
+</layout>
+
