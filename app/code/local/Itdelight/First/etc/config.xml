@@ -22,6 +22,34 @@
                     </itdelight_first>
                 </observers>
             </sales_quote_add_item>
+            <!--<sales_order_payment_save_before>-->
+                <!--<observers>-->
+                    <!--<itdelight_first>-->
+                        <!--<type>singleton</type>-->
+                        <!--<class>itdelight_first/observer</class>-->
+                        <!--<method>checkPoints</method>-->
+                    <!--</itdelight_first>-->
+                <!--</observers>-->
+            <!--</sales_order_payment_save_before>-->
+            <sales_order_payment_save_before>
+                <observers>
+                    <itdelight_first>
+                        <type>singleton</type>
+                        <class>itdelight_first/observer</class>
+                        <method>checkPoints</method>
+                    </itdelight_first>
+                </observers>
+            </sales_order_payment_save_before>
+            <payment_method_is_active>
+                <observers>
+                    <itdelight_first>
+                        <type>singleton</type>
+                        <class>itdelight_first/observer</class>
+                        <method>isEnoughPoints</method>
+                    </itdelight_first>
+                </observers>
+            <!--</checkout_controller_onepage_save_shipping_method>-->
+            </payment_method_is_active>
         </events>
         <blocks>
             <itdelight_first>
@@ -122,8 +150,8 @@
             </excellence>
         </carriers>
         <payment>
-            <itdelight_first>
-                <model>itdelight_first/Checkpoints</model>// very important thing, here you select the model for your payment method
+            <using_points>
+                <model>itdelight_first/Checkpoints</model>
                 <active>1</active>
                 <order_status>pending</order_status>
                 <title>Points</title>
@@ -132,64 +160,8 @@
                 <merchant_id>Insert merchant id</merchant_id>
                 <allowspecific>0</allowspecific>
                 <sort_order>1</sort_order>
-            </itdelight_first>
+            </using_points>
         </payment>
     </default>
 
 </config>
-
-
-<!--<config>-->
-<!--<modules>-->
-    <!--<inchoo_mycheckout>-->
-        <!--<version>1.0.0</version>-->
-    <!--</inchoo_mycheckout>-->
-<!--</modules>-->
-
-<!--<global>-->
-    <!--<models>-->
-        <!--<mycheckout>-->
-            <!--<class>Inchoo_Mycheckout_Model</class>-->
-        <!--</mycheckout>-->
-    <!--</models>-->
-    <!--<helpers>-->
-        <!--<mycheckout>-->
-            <!--<class>Inchoo_Mycheckout_Helper</class>-->
-        <!--</mycheckout>-->
-
-    <!--</helpers>-->
-    <!--<blocks>-->
-        <!--<mycheckout>-->
-            <!--<class>Inchoo_Mycheckout_Block</class>-->
-        <!--</mycheckout>-->
-    <!--</blocks>-->
-<!--</global>-->
-
-<!--<default>-->
-    <!--<payment>-->
-        <!--<mycheckout>-->
-            <!--<model>mycheckout/standard</model>// very important thing, here you select the model for your payment method-->
-            <!--<active>1</active>-->
-            <!--<order_status>pending</order_status>-->
-            <!--<title>CUSTOM CARD</title>-->
-            <!--<payment_action>sale</payment_action>-->
-            <!--<submit_url>https://someurl.com</submit_url>-->
-            <!--<merchant_id>Insert merchant id</merchant_id>-->
-            <!--<allowspecific>0</allowspecific>-->
-            <!--<sort_order>1</sort_order>-->
-        <!--</mycheckout>-->
-    <!--</payment>-->
-<!--</default>-->
-
-<!--<frontend>-->
-    <!--<routers>-->
-        <!--<mycheckout>-->
-            <!--<use>standard</use>-->
-            <!--<args>-->
-                <!--<module>Inchoo_Mycheckout</module>-->
-                <!--<frontname>customcard</frontname>-->
-            <!--</args>-->
-        <!--</mycheckout>-->
-    <!--</routers>-->
-<!--</frontend>-->
-<!--</config>-->

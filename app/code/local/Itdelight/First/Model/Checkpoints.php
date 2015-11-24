@@ -2,19 +2,23 @@
 class Itdelight_First_Model_Checkpoints extends Mage_Payment_Model_Method_Abstract
 {
 
-    protected $_code             = 'itdelight_first';
-//    protected $_formBlockType    = 'checkbuy/form';
+    protected $_code             = 'using_points';
+//    protected $_formBlockType    = 'first/form';
 //    protected $_infoBlockType    = 'checkbuy/info';
-    protected $canUseCheckout    = TRUE;
+    protected $canUseCheckout    = true;
 
-    public function isAvailable($quote = NULL)
-    {
-//        die("Message");
-        return TRUE;
-    }
+//    public function isAvailable($quote = NULL)
+//    {
+////        die("Message");
+//        return TRUE;
+//    }
 
     public function assignData($data)
     {
+        Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getTitle();
+
+        $this->getMethodTitle();
+
         if(!($data instanceof Varien_Object))
         {
             $data = new Varien_Object($data);
@@ -24,25 +28,35 @@ class Itdelight_First_Model_Checkpoints extends Mage_Payment_Model_Method_Abstra
         return $this;
     }
 
-    public function validate()
+    public function echoData($data)
     {
-        parent::validate();
-
-        $info = $this->getInfoInstance();
-
-        $no      = $info->getCheckNo();
-        $date    = $info->getCheckDate();
-        if(empty($no) || empty($date))
-        {
-            $errorCode   = 'invalid_data';
-            $errorMsg    = $this->_getHelper()->__('Check No and Date are required fields');
-        }
-
-        if($errorMsg)
-        {
-            Mage::throwException($errorMsg);
-        }
-        return $this;
+        echo "<h1>".$data . "This is true</h1>";
     }
+
+    public function getEx()
+    {
+        echo "TRUE TRUE TRUE";
+    }
+
+//    public function validate()
+//    {
+//        parent::validate();
+//
+//        $info = $this->getInfoInstance();
+//
+//        $no      = $info->getCheckNo();
+//        $date    = $info->getCheckDate();
+//        if(empty($no) || empty($date))
+//        {
+//            $errorCode   = 'invalid_data';
+//            $errorMsg    = $this->_getHelper()->__('Check No and Date are required fields');
+//        }
+//
+//        if($errorMsg)
+//        {
+//            Mage::throwException($errorMsg);
+//        }
+//        return $this;
+//    }
 
 }
