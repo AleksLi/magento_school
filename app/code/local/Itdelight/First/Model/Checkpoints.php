@@ -2,10 +2,10 @@
 class Itdelight_First_Model_Checkpoints extends Mage_Payment_Model_Method_Abstract
 {
 
-    protected $_code             = 'using_points';
+    protected $_code = 'using_points';
 //    protected $_formBlockType    = 'first/form';
 //    protected $_infoBlockType    = 'checkbuy/info';
-    protected $canUseCheckout    = true;
+    protected $canUseCheckout = true;
 
 //    public function isAvailable($quote = NULL)
 //    {
@@ -19,8 +19,7 @@ class Itdelight_First_Model_Checkpoints extends Mage_Payment_Model_Method_Abstra
 
         $this->getMethodTitle();
 
-        if(!($data instanceof Varien_Object))
-        {
+        if (!($data instanceof Varien_Object)) {
             $data = new Varien_Object($data);
         }
         $info = $this->getInfoInstance();
@@ -30,33 +29,12 @@ class Itdelight_First_Model_Checkpoints extends Mage_Payment_Model_Method_Abstra
 
     public function echoData($data)
     {
-        echo "<h1>".$data . "This is true</h1>";
+        echo "<h1>" . $data . "This is true</h1>";
     }
 
     public function getEx()
     {
         echo "TRUE TRUE TRUE";
     }
-
-//    public function validate()
-//    {
-//        parent::validate();
-//
-//        $info = $this->getInfoInstance();
-//
-//        $no      = $info->getCheckNo();
-//        $date    = $info->getCheckDate();
-//        if(empty($no) || empty($date))
-//        {
-//            $errorCode   = 'invalid_data';
-//            $errorMsg    = $this->_getHelper()->__('Check No and Date are required fields');
-//        }
-//
-//        if($errorMsg)
-//        {
-//            Mage::throwException($errorMsg);
-//        }
-//        return $this;
-//    }
 
 }

@@ -42,9 +42,23 @@ class Itdelight_First_Model_Observer {
     {
 //        $model = Mage::getModel('itdelight_first/checkpoints')->getEx();
 //        $priceTotal = $observer->_data['quote']->_data['grand_total'];
-//        $event = $observer->getEvent();
+        $event = $observer->getEvent();
+        $payment = $observer->getPayment();
+        $paymentMethod = $observer->getPayment()->getMethod();
+        $customer = Mage::getSingleton('customer/session')->getCustomer();
+        $customerPoints = $customer->getPoints();
+        $orderSum = $payment->getOrder()->getGrandTotal();
+
+        if ($paymentMethod == "using_points") {
+            $currentSumPoints = $customerPoints - $orderSum;
+            $customer->setPoints($currentSumPoints);
+            $customer->save();
+        } else {
+            $currentSumPoints = $customerPoints + $orderSum;
+            $customer->setPoints($currentSumPoints);
+            $customer->save();
+        }
 //
-//        $points = $event->_data['quote']->_customer->_data['points'];
         //to set Quantity of points
 //        $customerPoints->setPoints('100');
 
