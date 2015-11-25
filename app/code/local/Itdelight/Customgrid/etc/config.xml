@@ -13,12 +13,26 @@
                 </rewrite>
             </adminhtml>
         </blocks>
+
         <itdelight_customgrid>
             <class>Itdelight_Customgrid_Block</class>
         </itdelight_customgrid>
+        <helpers>
+            <itdelight_customgrid>
+                <class>Itdelight_Customgrid_Helper</class>
+            </itdelight_customgrid>
+        </helpers>
         <itdelight_customgrid>
             <class>Itdelight_Customgrid_Model</class>
         </itdelight_customgrid>
+        <resources>
+            <itdelight_customgrid_setup>
+                <setup>
+                    <module>Itdelight_Customgrid</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
+                </setup>
+            </itdelight_customgrid_setup>
+        </resources>
     </global>
     <adminhtml>
         <events>
@@ -31,6 +45,26 @@
                     </itdelight_customgrid>
                 </observers>
             </core_block_abstract_prepare_layout_before>
+            <sales_order_place_after>
+                <observers>
+                    <itdelight_customgrid_pointdiff>
+                        <type>model</type>
+                        <class>Itdelight_Customgrid_Model_Observer</class>
+                        <method>pointDifference</method>
+                    </itdelight_customgrid_pointdiff>
+                </observers>
+            </sales_order_place_after>
+            <!--</sales_order_grid_collection_load_before>-->
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <itdelight_customgrid_act>
+                        <type>model</type>
+                        <class>Itdelight_Customgrid_Model_Observer</class>
+                        <method>appendPointsColumn</method>
+                    </itdelight_customgrid_act>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+
         </events>
         <layout>
             <updates>

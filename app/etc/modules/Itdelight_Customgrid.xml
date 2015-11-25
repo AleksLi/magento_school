@@ -4,6 +4,9 @@
         <Itdelight_Customgrid>
             <active>true</active>
             <codePool>local</codePool>
+            <depends>
+                <Itdelight_First />
+            </depends>
         </Itdelight_Customgrid>
     </modules>
 </config>

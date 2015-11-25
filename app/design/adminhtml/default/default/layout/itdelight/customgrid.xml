@@ -12,6 +12,16 @@
                 </arguments>
                 <after>shipping_name</after>
             </action>
+            <action method="addColumnAfter">
+                <columnId>changed_points</columnId>
+                <arguments>
+                    <header>Point difference</header>
+                    <index>changed_points</index>
+                    <filter_index>changed.points</filter_index>
+                    <type>text</type>
+                </arguments>
+                <after>payment_method</after>
+            </action>
         </reference>
     </sales_order_grid_update_handle>
     <adminhtml_sales_order_grid>

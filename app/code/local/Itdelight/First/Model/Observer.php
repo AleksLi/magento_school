@@ -40,9 +40,6 @@ class Itdelight_First_Model_Observer {
 
     public function checkPoints(Varien_Event_Observer  $observer)
     {
-//        $model = Mage::getModel('itdelight_first/checkpoints')->getEx();
-//        $priceTotal = $observer->_data['quote']->_data['grand_total'];
-        $event = $observer->getEvent();
         $payment = $observer->getPayment();
         $paymentMethod = $observer->getPayment()->getMethod();
         $customer = Mage::getSingleton('customer/session')->getCustomer();
@@ -58,30 +55,7 @@ class Itdelight_First_Model_Observer {
             $customer->setPoints($currentSumPoints);
             $customer->save();
         }
-//
-        //to set Quantity of points
-//        $customerPoints->setPoints('100');
 
-//        $event  = $observer->getEvent();
-//        $method = $event->getMethodInstance();
-//        $result = $event->getResult();
-//        $customerPoints = Mage::getSingleton('customer/session')->getCustomer(); //->getPoints(); //good decision
-//        $grandTotalCost = $observer->getGrandTotal();
-//        $allActivePaymentMethods = Mage::getModel('payment/config')->getActiveMethods();
-//
-//        $customerPoints->setPoints('10');
-//
-//        if(isset($allActivePaymentMethods['using_points']) ) {
-//            if($method->getCode() == 'using_points' ) {
-//                if ($grandTotalCost < $customerPoints) {
-//                    $result->isAvailable = true;
-////                die('hard customer points');
-//                } else {
-//                    $result->isAvailable = false;
-//                }
-//            }
-//
-//        }
 
     }
 
@@ -93,13 +67,8 @@ class Itdelight_First_Model_Observer {
         $quote = $observer->getEvent()->getQuote();
         $customerPoints = Mage::getSingleton('customer/session')->getCustomer(); //->getPoints(); //good decision is OK
         $customerPoints->getPoints();
-//        $customerPoints->setPoints('10');
-//        $grandTotalCost = $quote->getGrandTotal();
-//        $grandTotalCost = $observer->getQuote()->getGrandTotal();
-//        $quote2 = $quote->getPayment()->getMethod();
-//        $allAvailablePaymentMethods = Mage::getModel('payment/config')->getAllMethods();
+
         $allActivePaymentMethods = Mage::getModel('payment/config')->getActiveMethods();
-//        $allActivePaymentMethods['using_points'];
 
 
         if (isset($allActivePaymentMethods['using_points'])) {
