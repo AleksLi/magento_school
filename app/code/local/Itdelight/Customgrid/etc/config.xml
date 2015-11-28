@@ -45,7 +45,7 @@
                     </itdelight_customgrid>
                 </observers>
             </core_block_abstract_prepare_layout_before>
-            <sales_order_place_after>
+            <sales_order_grid_collection_load_before>
                 <observers>
                     <itdelight_customgrid_pointdiff>
                         <type>model</type>
@@ -53,7 +53,7 @@
                         <method>pointDifference</method>
                     </itdelight_customgrid_pointdiff>
                 </observers>
-            </sales_order_place_after>
+            </sales_order_grid_collection_load_before>
             <!--</sales_order_grid_collection_load_before>-->
             <core_block_abstract_prepare_layout_before>
                 <observers>

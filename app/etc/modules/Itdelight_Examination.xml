@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Itdelight_Examination>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Itdelight_Examination>
+    </modules>
+</config>

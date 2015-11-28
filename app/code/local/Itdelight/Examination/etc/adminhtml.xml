@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <itdelight_examination module="itdelight_examination" translate="title">
+            <title>Itdelight</title>
+            <sort_order>100</sort_order>
+            <children>
+                <slides module="itdelight_examination" translate="title">
+                    <title>Slider Settings</title>
+                    <sort_order>2</sort_order>
+                    <action>examination_admin/adminhtml_manageslides</action>
+                </slides>
+            </children>
+        </itdelight_examination>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <itdelight_examination translate="title" module="itdelight_examination">
+                        <title>Itdelight</title>
+                        <sort_order>100</sort_order>
+                        <children>
+                            <slides module="itdelight_examination" translate="title">
+                                <title>Slider settings</title>
+                                <sort_order>2</sort_order>
+                                <action>examination_admin/adminhtml_manageslides</action>
+                            </slides>
+                        </children>
+                    </itdelight_examination>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

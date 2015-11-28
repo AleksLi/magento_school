@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Itdelight_Examination>
+            <version>1.0.0</version>
+        </Itdelight_Examination>
+    </modules>
+    <global>
+        <blocks>
+            <itdelight_examination>
+                <class>Itdelight_Examination_Block</class>
+            </itdelight_examination>
+        </blocks>
+        <models>
+            <itdelight_examination>
+                <class>Itdelight_Examination_Model</class>
+                <resourceModel>itdelight_examination_resource</resourceModel>
+            </itdelight_examination>
+            <itdelight_examination_resource>
+                <class>Itdelight_Examination_Model_Resource</class>
+                <entities>
+                    <cslider>
+                        <table>itdelight_examination_cslider</table>
+                    </cslider>
+                </entities>
+            </itdelight_examination_resource>
+        </models>
+        <resources>
+            <itdelight_examination_setup>
+                <setup>
+                    <module>Itdelight_Examination</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
+                </setup>
+            </itdelight_examination_setup>
+        </resources>
+        <helpers>
+            <itdelight_examination>
+                <class>Itdelight_Examination_Helper</class>
+            </itdelight_examination>
+        </helpers>
+
+
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <itdelight_examination>
+                    <file>itdelight/examination.xml</file>
+                </itdelight_examination>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <itdelight_examination>
+                <use>admin</use>
+                <args>
+                    <module>Itdelight_Examination</module>
+                    <frontName>examination_admin</frontName>
+                </args>
+            </itdelight_examination>
+        </routers>
+    </admin>
+
+</config>
