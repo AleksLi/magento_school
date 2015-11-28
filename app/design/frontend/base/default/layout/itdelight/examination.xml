@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <!--
+    layout to create a beautiful homepage slider
+    -->
+
+    <cms_index_index>
+        <!-- Customize -->
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+
+        <reference name="head">
+            <action method="setTitle">
+                <title>Examination</title>
+            </action>
+            <action method="addCss">
+                <stylesheet>full_width_image_slider/css/default.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>full_width_image_slider/css/component.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <script>lib/jquery/jquery-1.10.2.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/jquery/noconflict.js</script>
+            </action>
+            <!--<action method="addItem">-->
+                <!--<type>skin_js</type>-->
+                <!--<name>supersized_slider/js/jquery.cbpFWSlider.min.js</name>-->
+            <!--</action>-->
+        </reference>
+        <reference name="header">
+            <!--<reference name="top.container">-->
+                <!--<block type="itdelight_examination/cslider" name="slider" template="itdelight/cslider/slider.phtml" />-->
+            <!--</reference>-->
+        </reference>
+        <!--<block type="page/html" name="root" output="toHtml" template="page/1column.phtml" />-->
+        <!--<reference name="root">-->
+            <!--<action method="setTemplate">-->
+                <!--<template>page/1column.phtml</template>-->
+            <!--</action>-->
+        <!--</reference>-->
+        <reference name="content">
+            <block type="itdelight_examination/cslider" name="slider" template="itdelight/cslider/slider.phtml" before="-" />
+        </reference>
+    </cms_index_index>
+
+    <catalog_product_view translate="label">
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/itdelight_styles.css</stylesheet></action>
+        </reference>
+        <remove name="product.info.addtocart"/>
+
+        <reference name="product.info">
+            <block type="catalog/product_view" name="product.info.addtocart.itdelight" as="addtocart" template="itdelight/catalog/product/view/addtocart.phtml"/>
+        </reference>
+
+    </catalog_product_view>
+
+</layout>

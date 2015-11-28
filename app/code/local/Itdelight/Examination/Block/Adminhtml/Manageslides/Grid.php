@@ -17,7 +17,7 @@ class Itdelight_Examination_Block_Adminhtml_Manageslides_Grid extends Mage_Admin
 
         $this->addColumn('cslider_id', array(
             'header' => $helper->__('Slider ID'),
-            'index' => 'blogpost_id',
+            'index' => 'cslider_id',
             'width'     => '80px',
         ));
 
@@ -26,7 +26,7 @@ class Itdelight_Examination_Block_Adminhtml_Manageslides_Grid extends Mage_Admin
             'align'     => 'left',
             'index'     => 'image',
             'width'     => '100',
-//            'renderer'  => 'Itdelight_Examination_Block_Adminhtml_Manageslides_Renderer_Image'
+            'renderer'  => 'Itdelight_Examination_Block_Adminhtml_Manageslides_Renderer_Image'
         ));
 
         $this->addColumn('title', array(

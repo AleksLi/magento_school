@@ -1,0 +1,32 @@
+<?php
+/**
+ * @category    design
+ * @package     base_default
+ * @author     Aleks Li
+ */
+?>
+<?php $_product = $this->getProduct(); ?>
+<?php $stock = Mage::helper('itdelight_examination')->getAvailProdquantity($_product->getId()); ?>
+<?php $buttonTitle = Mage::helper('core')->quoteEscape($this->__('Add to Cart')); ?>
+<?php if($_product->isSaleable()): ?>
+    <div class="add-to-cart">
+<!--        <div class="stock-wrapper">-->
+            <div class="balance-in-stock">
+                <span class="label">Balance in stock:</span>
+                <span class="value"><?php echo floor($stock->getQty()); ?></span>
+<!--            </div>-->
+        </div>
+
+        <?php if(!$_product->isGrouped()): ?>
+            <div class="qty-wrapper">
+                <label for="qty"><?php echo $this->__('Qty:') ?></label>
+                <input type="text" pattern="\d*" name="qty" id="qty" maxlength="12" value="<?php echo max($this->getProductDefaultQty() * 1, 1) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>" class="input-text qty" />
+            </div>
+        <?php endif; ?>
+        <div class="add-to-cart-buttons">
+            <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
+            <?php echo $this->getChildHtml('', true, true) ?>
+        </div>
+
+    </div>
+<?php endif; ?>

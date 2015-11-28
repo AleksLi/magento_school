@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Itdelight_Customgrid>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
             <depends>
                 <Itdelight_First />

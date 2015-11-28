@@ -22,4 +22,11 @@ class Itdelight_Examination_Helper_Data extends Mage_Core_Helper_Abstract
             return $url;
         }
     }
+
+    public function getAvailProdquantity($id)
+    {
+        $_product = Mage::getModel('catalog/product')->load($id);
+        $stock = Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product);
+        return $stock;
+    }
 }

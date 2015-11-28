@@ -1,0 +1,22 @@
+/**
+ *
+ * @category    design
+ * @package     base_default
+ */
+/* ============================================ *
+ * Styles for Product page
+ * ============================================ */
+
+.add-to-cart .stock-wrapper {
+    margin: 5px 0;
+}
+.balance-in-stock {
+    padding: 8px;
+    border: 1px dashed #c15eff;
+    border-radius: 5px;
+    float: right;
+    display: inline-block;
+}
+.balance-in-stock .value {
+    color: #11b400;
+}

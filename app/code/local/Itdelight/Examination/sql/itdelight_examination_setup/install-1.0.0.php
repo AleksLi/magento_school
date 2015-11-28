@@ -24,9 +24,6 @@ $table = $installer->getConnection()
     ->addColumn('title', Varien_Db_Ddl_Table::TYPE_TEXT, '255', array(
         'nullable' => false,
     ))
-    ->addColumn('content', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
-        'nullable' => false,
-    ))
     ->addColumn('status', Varien_Db_Ddl_Table::TYPE_INTEGER, 4, array(
         'nullable' => false,
     ), 'Status')
