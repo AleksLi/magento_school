@@ -7,16 +7,6 @@
     </modules>
     <global>
         <events>
-            <sales_order_payment_place_start>
-                <observers>
-                    <itdelight_examination_pointdiff>
-                        <type>model</type>
-                        <class>Itdelight_Examination_Model_Observer</class>
-                        <method>pointDifference</method>
-                    </itdelight_examination_pointdiff>
-                </observers>
-            </sales_order_payment_place_start>
-            <!--</sales_order_grid_collection_load_before>-->
             <core_block_abstract_prepare_layout_before>
                 <observers>
                     <itdelight_examination_act>
@@ -26,7 +16,7 @@
                     </itdelight_examination_act>
                 </observers>
             </core_block_abstract_prepare_layout_before>
-            <sales_order_payment_save_before>
+            <sales_order_payment_place_start>
                 <observers>
                     <itdelight_examination>
                         <type>singleton</type>
@@ -34,7 +24,7 @@
                         <method>checkPoints</method>
                     </itdelight_examination>
                 </observers>
-            </sales_order_payment_save_before>
+            </sales_order_payment_place_start>
             <payment_method_is_active>
                 <observers>
                     <itdelight_examination>
@@ -43,7 +33,6 @@
                         <method>isEnoughPoints</method>
                     </itdelight_examination>
                 </observers>
-                <!--</checkout_controller_onepage_save_shipping_method>-->
             </payment_method_is_active>
         </events>
         <blocks>
