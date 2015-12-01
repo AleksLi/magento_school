@@ -6,7 +6,10 @@ class Itdelight_Examination_Block_Adminhtml_Customer_Points extends Mage_Adminht
         $customer = Mage::getSingleton('customer/session')->getCustomer();
         $customerData = Mage::getModel('customer/customer')->load($row->getId())->getData();
         $value = $customerData['points'] ;
-
+        if(!$value) {
+            $noPoints = "no points";
+            return $noPoints;
+        }
         return $value;
     }
 }

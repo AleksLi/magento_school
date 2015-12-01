@@ -4,19 +4,22 @@
 <div class="container">
     <div id="cbp-fwslider" class="cbp-fwslider">
         <ul>
-            <?php foreach ($_slides as $slide): ?>
-                <!--    --><?php //Zend_Debug::dump($slide); die;?>
-                <li>
-                    <a href="#">
-                        <img src="<?php echo $_helper->getImageUrl() . $slide->getImage(); ?>" alt="<?php echo $slide->getTitle(); ?>"/>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-            <li><a href="#"><img src="<?php echo $this->getSkinUrl("full_width_image_slider/images/1.jpg") ?>" alt="img01"/></a></li>
-            <li><a href="#"><img src="<?php echo $this->getSkinUrl("full_width_image_slider/images/2.jpg") ?>" alt="img02"/></a></li>
-            <li><a href="#"><img src="<?php echo $this->getSkinUrl("full_width_image_slider/images/3.jpg") ?>" alt="img03"/></a></li>
-            <li><a href="#"><img src="<?php echo $this->getSkinUrl("full_width_image_slider/images/4.jpg") ?>" alt="img04"/></a></li>
-            <li><a href="#"><img src="<?php echo $this->getSkinUrl("full_width_image_slider/images/5.jpg") ?>" alt="img05"/></a></li>
+            <?php if (empty($_slides->getSize())): ?>
+                <?php
+                $html = '<li><a href="#"><img src="'. $this->getSkinUrl("full_width_image_slider/images/1.jpg") . '" alt="img01"/></a></li>';
+                $html.= '<li><a href="#"><img src="'. $this->getSkinUrl("full_width_image_slider/images/2.jpg") . '" alt="img01"/></a></li>';
+                $html.= '<li><a href="#"><img src="'. $this->getSkinUrl("full_width_image_slider/images/3.jpg") . '" alt="img01"/></a></li>';
+                echo $html;
+                ?>
+            <?php else: ?>
+                <?php foreach ($_slides as $slide): ?>
+                    <li>
+                        <a href="#">
+                            <img src="<?php echo $_helper->getImageUrl() . $slide->getImage(); ?>" alt="<?php echo $slide->getTitle(); ?>"/>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </ul>
     </div>
 </div>
